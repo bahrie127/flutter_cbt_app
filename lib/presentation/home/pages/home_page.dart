@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cbt_app/core/extensions/build_context_ext.dart';
 
 import '../../../core/assets/assets.gen.dart';
+import '../../materi/pages/materi_page.dart';
 import '../widgets/header_home.dart';
 import '../widgets/menu_home.dart';
 import '../widgets/title_section.dart';
+import 'about_us_page.dart';
+import 'tips_and_tricks_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -39,21 +43,21 @@ class _HomePageState extends State<HomePage> {
                 imagePath: Assets.images.menu.aboutUs.path,
                 label: 'About Us',
                 onPressed: () {
-                  // context.push(const AboutUsPage());
+                  context.push(const AboutUsPage());
                 },
               ),
               MenuHome(
                 imagePath: Assets.images.menu.tips.path,
                 label: 'Tips & Tricks ',
                 onPressed: () {
-                  // context.push(const TipsAndTricksPage());
+                  context.push(const TipsAndTricksPage());
                 },
               ),
               MenuHome(
                 imagePath: Assets.images.menu.materi.path,
                 label: 'Materi',
                 onPressed: () {
-                  // context.push(const MateriPage());
+                  context.push(const MateriPage());
                 },
               ),
               MenuHome(
