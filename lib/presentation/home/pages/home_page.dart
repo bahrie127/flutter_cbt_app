@@ -3,6 +3,7 @@ import 'package:flutter_cbt_app/core/extensions/build_context_ext.dart';
 
 import '../../../core/assets/assets.gen.dart';
 import '../../materi/pages/materi_page.dart';
+import '../../quiz/pages/quiz_list_page.dart';
 import '../widgets/header_home.dart';
 import '../widgets/menu_home.dart';
 import '../widgets/title_section.dart';
@@ -64,7 +65,7 @@ class _HomePageState extends State<HomePage> {
                 imagePath: Assets.images.menu.quiz.path,
                 label: 'Quiz',
                 onPressed: () {
-                  // context.push(const QuizListPage());
+                  context.push(const QuizListPage());
                 },
               ),
             ],
