@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cbt_app/core/extensions/build_context_ext.dart';
+import 'package:kiosk_mode/kiosk_mode.dart';
 
 import '../../../core/assets/assets.gen.dart';
 import '../../materi/pages/materi_page.dart';
@@ -64,7 +65,8 @@ class _HomePageState extends State<HomePage> {
               MenuHome(
                 imagePath: Assets.images.menu.quiz.path,
                 label: 'Quiz',
-                onPressed: () {
+                onPressed: () async {
+                  // await startKioskMode();
                   context.push(const QuizListPage());
                 },
               ),

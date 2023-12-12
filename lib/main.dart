@@ -13,14 +13,19 @@ import 'package:flutter_cbt_app/presentation/home/bloc/content/content_bloc.dart
 import 'package:flutter_cbt_app/presentation/home/pages/dashboard_page.dart';
 import 'package:flutter_cbt_app/presentation/materi/bloc/materi/materi_bloc.dart';
 import 'package:flutter_cbt_app/presentation/onboarding/pages/onboarding_page.dart';
+import 'package:flutter_cbt_app/presentation/quiz/bloc/answer/answer_bloc.dart';
 import 'package:flutter_cbt_app/presentation/quiz/bloc/create_ujian/create_ujian_bloc.dart';
-
+import 'package:flutter_cbt_app/presentation/quiz/bloc/daftar_soal/daftar_soal_bloc.dart';
+import 'package:flutter_cbt_app/presentation/quiz/bloc/hitung_nilai/hitung_nilai_bloc.dart';
+import 'package:kiosk_mode/kiosk_mode.dart';
 
 import 'data/datasources/content_remote_datasource.dart';
 import 'presentation/auth/bloc/logout/logout_bloc.dart';
 import 'presentation/quiz/bloc/ujian_by_kategori/ujian_by_kategori_bloc.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // await startKioskMode();
   runApp(const MyApp());
 }
 
@@ -49,8 +54,17 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => UjianByKategoriBloc(UjianRemoteDatasource()),
         ),
-         BlocProvider(
+        BlocProvider(
           create: (context) => CreateUjianBloc(UjianRemoteDatasource()),
+        ),
+        BlocProvider(
+          create: (context) => AnswerBloc(UjianRemoteDatasource()),
+        ),
+        BlocProvider(
+          create: (context) => DaftarSoalBloc(),
+        ),
+        BlocProvider(
+          create: (context) => HitungNilaiBloc(UjianRemoteDatasource()),
         ),
       ],
       child: MaterialApp(
